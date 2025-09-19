@@ -34,13 +34,13 @@ if __name__ == "__main__":
     trials = 1000000
     results, probabilities = monte_carlo_dice_simulation(trials)
 
-    print("Сума\tКількість\tІмовірність (%)\tАналітична імовірність (%)")
+    print("Сума\tКількість\tІмовірність (%)\tАналітична імовірність (%)\tВідхилиння (%)")
     analytic_probs = {
         2: 2.78, 3: 5.56, 4: 8.33, 5: 11.11, 6: 13.89,
         7: 16.67, 8: 13.89, 9: 11.11, 10: 8.33, 11: 5.56, 12: 2.78
     }
     for s in range(2, 13):
-        print(f"{s}\t{results[s]}\t\t{probabilities[s]*100:.2f}\t\t\t{analytic_probs[s]:.2f}")
+        print(f"{s}\t{results[s]}\t\t{probabilities[s]*100:.2f}\t\t\t{analytic_probs[s]:.2f}\t\t\t{(analytic_probs[s]-probabilities[s]*100):.2f}")
 
     # Побудова графіка
     sums = list(range(2, 13))
